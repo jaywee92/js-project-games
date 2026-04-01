@@ -87,8 +87,8 @@ function main() {
   const args = process.argv.slice(2);
 
   if (args.length === 0) {
-    console.log('Please provide a phrase to translate to Pig Latin');
-    console.log('Example: node pigLatin.js "Hello World"');
+    console.log('Error: please provide a phrase to translate to Pig Latin');
+    console.log('Usage: node pigLatin.js "Hello World"');
     return;
   }
 
@@ -97,4 +97,9 @@ function main() {
   console.log(translatedText);
 }
 
-main();
+if (require.main === module) {
+  main();
+}
+
+module.exports = { translateWord, translatePhrase };
+
